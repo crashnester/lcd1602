@@ -1,0 +1,674 @@
+Timing Analyzer report for LCD1602a
+Sun Feb 17 00:03:43 2019
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clk_LCD'
+ 12. Setup: 'clk'
+ 13. Hold: 'clk_LCD'
+ 14. Hold: 'clk'
+ 15. Setup Transfers
+ 16. Hold Transfers
+ 17. Report TCCS
+ 18. Report RSKM
+ 19. Unconstrained Paths Summary
+ 20. Clock Status Summary
+ 21. Unconstrained Output Ports
+ 22. Unconstrained Output Ports
+ 23. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; LCD1602a                                            ;
+; Device Family         ; MAX II                                              ;
+; Device Name           ; EPM240T100C5                                        ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Slow Model                                          ;
+; Rise/Fall Delays      ; Unavailable                                         ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                              ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets     ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }     ;
+; clk_LCD    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk_LCD } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+
+
++--------------------------------------------------+
+; Fmax Summary                                     ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 190.59 MHz ; 190.59 MHz      ; clk_LCD    ;      ;
+; 204.79 MHz ; 204.79 MHz      ; clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++----------------------------------+
+; Setup Summary                    ;
++---------+--------+---------------+
+; Clock   ; Slack  ; End Point TNS ;
++---------+--------+---------------+
+; clk_LCD ; -4.247 ; -58.268       ;
+; clk     ; -3.883 ; -47.969       ;
++---------+--------+---------------+
+
+
++----------------------------------+
+; Hold Summary                     ;
++---------+--------+---------------+
+; Clock   ; Slack  ; End Point TNS ;
++---------+--------+---------------+
+; clk_LCD ; -1.511 ; -1.511        ;
+; clk     ; 1.395  ; 0.000         ;
++---------+--------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++----------------------------------+
+; Minimum Pulse Width Summary      ;
++---------+--------+---------------+
+; Clock   ; Slack  ; End Point TNS ;
++---------+--------+---------------+
+; clk_LCD ; -2.289 ; -2.289        ;
+; clk     ; 0.234  ; 0.000         ;
++---------+--------+---------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Setup: 'clk_LCD'                                                                                         ;
++--------+-------------+-------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node   ; To Node     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------+-------------+--------------+-------------+--------------+------------+------------+
+; -4.247 ; counter[11] ; clk         ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.914      ;
+; -4.109 ; counter[9]  ; clk         ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.776      ;
+; -4.047 ; counter[13] ; clk         ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.714      ;
+; -3.982 ; counter[3]  ; counter[8]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.649      ;
+; -3.982 ; counter[3]  ; counter[9]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.649      ;
+; -3.982 ; counter[3]  ; counter[10] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.649      ;
+; -3.982 ; counter[3]  ; counter[11] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.649      ;
+; -3.982 ; counter[3]  ; counter[12] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.649      ;
+; -3.969 ; counter[3]  ; counter[13] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.636      ;
+; -3.969 ; counter[3]  ; counter[14] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.636      ;
+; -3.969 ; counter[3]  ; counter[15] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.636      ;
+; -3.930 ; counter[8]  ; clk         ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.597      ;
+; -3.875 ; counter[15] ; clk         ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.542      ;
+; -3.871 ; counter[4]  ; counter[8]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.538      ;
+; -3.871 ; counter[4]  ; counter[9]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.538      ;
+; -3.871 ; counter[4]  ; counter[10] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.538      ;
+; -3.871 ; counter[4]  ; counter[11] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.538      ;
+; -3.871 ; counter[4]  ; counter[12] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.538      ;
+; -3.858 ; counter[4]  ; counter[13] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.525      ;
+; -3.858 ; counter[4]  ; counter[14] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.525      ;
+; -3.858 ; counter[4]  ; counter[15] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.525      ;
+; -3.835 ; counter[1]  ; counter[8]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.502      ;
+; -3.835 ; counter[1]  ; counter[9]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.502      ;
+; -3.835 ; counter[1]  ; counter[10] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.502      ;
+; -3.835 ; counter[1]  ; counter[11] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.502      ;
+; -3.835 ; counter[1]  ; counter[12] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.502      ;
+; -3.822 ; counter[1]  ; counter[13] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.489      ;
+; -3.822 ; counter[1]  ; counter[14] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.489      ;
+; -3.822 ; counter[1]  ; counter[15] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.489      ;
+; -3.791 ; counter[0]  ; clk         ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.458      ;
+; -3.760 ; counter[4]  ; clk         ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.427      ;
+; -3.708 ; counter[12] ; clk         ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.375      ;
+; -3.693 ; counter[14] ; clk         ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.360      ;
+; -3.663 ; counter[2]  ; counter[8]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.330      ;
+; -3.663 ; counter[2]  ; counter[9]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.330      ;
+; -3.663 ; counter[2]  ; counter[10] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.330      ;
+; -3.663 ; counter[2]  ; counter[11] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.330      ;
+; -3.663 ; counter[2]  ; counter[12] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.330      ;
+; -3.650 ; counter[2]  ; counter[13] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.317      ;
+; -3.650 ; counter[2]  ; counter[14] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.317      ;
+; -3.650 ; counter[2]  ; counter[15] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.317      ;
+; -3.645 ; counter[0]  ; counter[8]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.312      ;
+; -3.645 ; counter[0]  ; counter[9]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.312      ;
+; -3.645 ; counter[0]  ; counter[10] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.312      ;
+; -3.645 ; counter[0]  ; counter[11] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.312      ;
+; -3.645 ; counter[0]  ; counter[12] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.312      ;
+; -3.632 ; counter[0]  ; counter[13] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.299      ;
+; -3.632 ; counter[0]  ; counter[14] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.299      ;
+; -3.632 ; counter[0]  ; counter[15] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.299      ;
+; -3.622 ; counter[6]  ; counter[8]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.289      ;
+; -3.622 ; counter[6]  ; counter[9]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.289      ;
+; -3.622 ; counter[6]  ; counter[10] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.289      ;
+; -3.622 ; counter[6]  ; counter[11] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.289      ;
+; -3.622 ; counter[6]  ; counter[12] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.289      ;
+; -3.609 ; counter[6]  ; counter[13] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.276      ;
+; -3.609 ; counter[6]  ; counter[14] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.276      ;
+; -3.609 ; counter[6]  ; counter[15] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.276      ;
+; -3.580 ; counter[7]  ; clk         ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.247      ;
+; -3.570 ; counter[10] ; clk         ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.237      ;
+; -3.539 ; counter[5]  ; counter[8]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.206      ;
+; -3.539 ; counter[5]  ; counter[9]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.206      ;
+; -3.539 ; counter[5]  ; counter[10] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.206      ;
+; -3.539 ; counter[5]  ; counter[11] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.206      ;
+; -3.539 ; counter[5]  ; counter[12] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.206      ;
+; -3.526 ; counter[5]  ; counter[13] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.193      ;
+; -3.526 ; counter[5]  ; counter[14] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.193      ;
+; -3.526 ; counter[5]  ; counter[15] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.193      ;
+; -3.430 ; counter[5]  ; clk         ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.097      ;
+; -3.415 ; counter[1]  ; clk         ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.082      ;
+; -3.403 ; counter[3]  ; clk         ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.070      ;
+; -3.379 ; counter[8]  ; counter[13] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.046      ;
+; -3.379 ; counter[8]  ; counter[14] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.046      ;
+; -3.379 ; counter[8]  ; counter[15] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.046      ;
+; -3.344 ; counter[7]  ; counter[8]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.011      ;
+; -3.344 ; counter[7]  ; counter[9]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.011      ;
+; -3.344 ; counter[7]  ; counter[10] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.011      ;
+; -3.344 ; counter[7]  ; counter[11] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.011      ;
+; -3.344 ; counter[7]  ; counter[12] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 4.011      ;
+; -3.331 ; counter[7]  ; counter[13] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.998      ;
+; -3.331 ; counter[7]  ; counter[14] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.998      ;
+; -3.331 ; counter[7]  ; counter[15] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.998      ;
+; -3.257 ; counter[9]  ; counter[13] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.924      ;
+; -3.257 ; counter[9]  ; counter[14] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.924      ;
+; -3.257 ; counter[9]  ; counter[15] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.924      ;
+; -3.227 ; counter[1]  ; counter[3]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.894      ;
+; -3.227 ; counter[1]  ; counter[4]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.894      ;
+; -3.227 ; counter[1]  ; counter[5]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.894      ;
+; -3.227 ; counter[1]  ; counter[6]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.894      ;
+; -3.227 ; counter[1]  ; counter[7]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.894      ;
+; -3.210 ; counter[11] ; counter[13] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.877      ;
+; -3.210 ; counter[11] ; counter[14] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.877      ;
+; -3.210 ; counter[11] ; counter[15] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.877      ;
+; -3.136 ; counter[10] ; counter[13] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.803      ;
+; -3.136 ; counter[10] ; counter[14] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.803      ;
+; -3.136 ; counter[10] ; counter[15] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.803      ;
+; -3.118 ; counter[3]  ; counter[7]  ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.785      ;
+; -3.076 ; counter[12] ; counter[13] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.743      ;
+; -3.076 ; counter[12] ; counter[14] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.743      ;
+; -3.076 ; counter[12] ; counter[15] ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.743      ;
+; -3.064 ; counter[6]  ; clk         ; clk_LCD      ; clk_LCD     ; 1.000        ; 0.000      ; 3.731      ;
++--------+-------------+-------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                     ;
++--------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node               ; To Node                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; -3.883 ; num[3]                  ; data[3]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.550      ;
+; -3.878 ; num[3]                  ; data[0]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.545      ;
+; -3.779 ; num[3]                  ; data[2]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.446      ;
+; -3.769 ; num[1]                  ; data[3]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.436      ;
+; -3.764 ; num[1]                  ; data[0]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.431      ;
+; -3.665 ; num[1]                  ; data[2]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.332      ;
+; -3.627 ; state.write_kappa       ; data[3]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.294      ;
+; -3.627 ; state.idle              ; data[3]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.294      ;
+; -3.622 ; state.write_kappa       ; data[0]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.289      ;
+; -3.622 ; state.idle              ; data[0]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.289      ;
+; -3.585 ; num[0]                  ; data[2]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.252      ;
+; -3.584 ; num[3]                  ; state.idle              ; clk          ; clk         ; 1.000        ; 0.000      ; 4.251      ;
+; -3.548 ; num[2]                  ; data[0]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.215      ;
+; -3.525 ; state.set_disp_mode_msb ; data[1]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.192      ;
+; -3.523 ; state.write_kappa       ; data[2]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.190      ;
+; -3.523 ; state.idle              ; data[2]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.190      ;
+; -3.450 ; num[1]                  ; data[1]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.117      ;
+; -3.417 ; num[3]                  ; state.write_kappa       ; clk          ; clk         ; 1.000        ; 0.000      ; 4.084      ;
+; -3.411 ; num[0]                  ; num[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.078      ;
+; -3.384 ; num[3]                  ; data[1]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.051      ;
+; -3.379 ; num[0]                  ; num[1]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.046      ;
+; -3.374 ; num[2]                  ; state.idle              ; clk          ; clk         ; 1.000        ; 0.000      ; 4.041      ;
+; -3.356 ; num[2]                  ; data[3]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 4.023      ;
+; -3.311 ; num[1]                  ; state.idle              ; clk          ; clk         ; 1.000        ; 0.000      ; 3.978      ;
+; -3.288 ; num[0]                  ; num[0]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.955      ;
+; -3.274 ; num[0]                  ; data[0]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 3.941      ;
+; -3.267 ; num[0]                  ; num[3]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.934      ;
+; -3.252 ; num[2]                  ; data[2]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 3.919      ;
+; -3.237 ; num[2]                  ; num[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.904      ;
+; -3.218 ; num[2]                  ; num[1]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.885      ;
+; -3.207 ; num[2]                  ; state.write_kappa       ; clk          ; clk         ; 1.000        ; 0.000      ; 3.874      ;
+; -3.171 ; num[0]                  ; data[1]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 3.838      ;
+; -3.171 ; num[1]                  ; num[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.838      ;
+; -3.164 ; num[1]                  ; num[1]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.831      ;
+; -3.144 ; state.clear_lcd_lsb     ; data[0]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 3.811      ;
+; -3.144 ; num[1]                  ; state.write_kappa       ; clk          ; clk         ; 1.000        ; 0.000      ; 3.811      ;
+; -3.129 ; num[1]                  ; RS~reg0                 ; clk          ; clk         ; 1.000        ; 0.000      ; 3.796      ;
+; -3.037 ; num[2]                  ; data[1]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 3.704      ;
+; -3.008 ; num[0]                  ; data[3]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 3.675      ;
+; -3.007 ; num[0]                  ; state.idle              ; clk          ; clk         ; 1.000        ; 0.000      ; 3.674      ;
+; -2.988 ; num[2]                  ; num[0]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.655      ;
+; -2.980 ; state.idle              ; data[1]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 3.647      ;
+; -2.967 ; num[2]                  ; num[3]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.634      ;
+; -2.906 ; num[3]                  ; num[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.573      ;
+; -2.897 ; num[3]                  ; num[1]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.564      ;
+; -2.842 ; num[3]                  ; RS~reg0                 ; clk          ; clk         ; 1.000        ; 0.000      ; 3.509      ;
+; -2.840 ; num[0]                  ; state.write_kappa       ; clk          ; clk         ; 1.000        ; 0.000      ; 3.507      ;
+; -2.833 ; state.disp_on_lsb       ; data[2]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 3.500      ;
+; -2.811 ; num[2]                  ; RS~reg0                 ; clk          ; clk         ; 1.000        ; 0.000      ; 3.478      ;
+; -2.776 ; data[1]~reg0            ; data[1]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 3.443      ;
+; -2.768 ; state.shift_down_lsb    ; state.write_kappa       ; clk          ; clk         ; 1.000        ; 0.000      ; 3.435      ;
+; -2.708 ; num[1]                  ; num[0]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.375      ;
+; -2.695 ; num[3]                  ; num[0]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.362      ;
+; -2.684 ; num[1]                  ; num[3]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.351      ;
+; -2.672 ; num[3]                  ; num[3]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.339      ;
+; -2.656 ; state.disp_on_lsb       ; data[3]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 3.323      ;
+; -2.594 ; state.write_kappa       ; data[1]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 3.261      ;
+; -2.450 ; state.write_kappa       ; state.idle              ; clk          ; clk         ; 1.000        ; 0.000      ; 3.117      ;
+; -2.445 ; state.write_kappa       ; RS~reg0                 ; clk          ; clk         ; 1.000        ; 0.000      ; 3.112      ;
+; -2.391 ; state.shift_down_lsb    ; data[1]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 3.058      ;
+; -2.274 ; state.shift_down_lsb    ; data[2]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 2.941      ;
+; -2.229 ; state.write_kappa       ; num[0]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 2.896      ;
+; -2.223 ; state.write_kappa       ; num[3]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 2.890      ;
+; -2.108 ; data[2]~reg0            ; data[2]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 2.775      ;
+; -1.997 ; state.set_disp_mode_lsb ; state.disp_on_msb       ; clk          ; clk         ; 1.000        ; 0.000      ; 2.664      ;
+; -1.866 ; state.write_kappa       ; num[2]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 2.533      ;
+; -1.866 ; state.write_kappa       ; num[1]                  ; clk          ; clk         ; 1.000        ; 0.000      ; 2.533      ;
+; -1.775 ; RS~reg0                 ; RS~reg0                 ; clk          ; clk         ; 1.000        ; 0.000      ; 2.442      ;
+; -1.774 ; data[3]~reg0            ; data[3]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 2.441      ;
+; -1.731 ; state.idle              ; RS~reg0                 ; clk          ; clk         ; 1.000        ; 0.000      ; 2.398      ;
+; -1.722 ; state.idle              ; state.idle              ; clk          ; clk         ; 1.000        ; 0.000      ; 2.389      ;
+; -1.688 ; data[0]~reg0            ; data[0]~reg0            ; clk          ; clk         ; 1.000        ; 0.000      ; 2.355      ;
+; -1.572 ; state.set_disp_mode_msb ; state.set_disp_mode_lsb ; clk          ; clk         ; 1.000        ; 0.000      ; 2.239      ;
+; -1.287 ; state.write_kappa       ; state.write_kappa       ; clk          ; clk         ; 1.000        ; 0.000      ; 1.954      ;
+; -1.253 ; state.disp_on_lsb       ; state.shift_down_msb    ; clk          ; clk         ; 1.000        ; 0.000      ; 1.920      ;
+; -1.245 ; state.disp_on_msb       ; state.disp_on_lsb       ; clk          ; clk         ; 1.000        ; 0.000      ; 1.912      ;
+; -1.208 ; state.clear_lcd_msb     ; state.clear_lcd_lsb     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.875      ;
+; -1.205 ; state.clear_lcd_lsb     ; state.set_disp_mode_msb ; clk          ; clk         ; 1.000        ; 0.000      ; 1.872      ;
+; -0.949 ; state.shift_down_msb    ; state.shift_down_lsb    ; clk          ; clk         ; 1.000        ; 0.000      ; 1.616      ;
++--------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Hold: 'clk_LCD'                                                                                          ;
++--------+-------------+-------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node   ; To Node     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------+-------------+--------------+-------------+--------------+------------+------------+
+; -1.511 ; clk         ; clk         ; clk          ; clk_LCD     ; 0.000        ; 3.348      ; 2.434      ;
+; -1.011 ; clk         ; clk         ; clk          ; clk_LCD     ; -0.500       ; 3.348      ; 2.434      ;
+; 1.951  ; counter[0]  ; counter[0]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.172      ;
+; 2.126  ; counter[7]  ; counter[7]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.142  ; counter[8]  ; counter[8]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.363      ;
+; 2.143  ; counter[9]  ; counter[9]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.364      ;
+; 2.145  ; counter[10] ; counter[10] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.366      ;
+; 2.145  ; counter[15] ; counter[15] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.366      ;
+; 2.151  ; counter[5]  ; counter[5]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.372      ;
+; 2.169  ; counter[0]  ; counter[1]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.390      ;
+; 2.233  ; counter[11] ; counter[11] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.454      ;
+; 2.239  ; counter[3]  ; counter[3]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.460      ;
+; 2.240  ; counter[2]  ; counter[2]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.461      ;
+; 2.248  ; counter[6]  ; counter[6]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.469      ;
+; 2.249  ; counter[14] ; counter[14] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.470      ;
+; 2.250  ; counter[1]  ; counter[1]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.471      ;
+; 2.251  ; counter[4]  ; counter[4]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.472      ;
+; 2.261  ; counter[12] ; counter[12] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.482      ;
+; 2.261  ; counter[13] ; counter[13] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 2.482      ;
+; 2.974  ; counter[8]  ; counter[9]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.195      ;
+; 2.975  ; counter[9]  ; counter[10] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.196      ;
+; 2.977  ; counter[10] ; counter[11] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.198      ;
+; 2.983  ; counter[5]  ; counter[6]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.204      ;
+; 3.001  ; counter[0]  ; counter[2]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.222      ;
+; 3.071  ; counter[2]  ; clk         ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.292      ;
+; 3.085  ; counter[8]  ; counter[10] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.306      ;
+; 3.086  ; counter[9]  ; counter[11] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.307      ;
+; 3.088  ; counter[10] ; counter[12] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.309      ;
+; 3.094  ; counter[5]  ; counter[7]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.315      ;
+; 3.173  ; counter[11] ; counter[12] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.394      ;
+; 3.179  ; counter[3]  ; counter[4]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.400      ;
+; 3.188  ; counter[6]  ; counter[7]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.409      ;
+; 3.189  ; counter[14] ; counter[15] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.410      ;
+; 3.190  ; counter[1]  ; counter[2]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.411      ;
+; 3.191  ; counter[4]  ; counter[5]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.412      ;
+; 3.196  ; counter[8]  ; counter[11] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.417      ;
+; 3.197  ; counter[9]  ; counter[12] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.418      ;
+; 3.201  ; counter[13] ; counter[14] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.422      ;
+; 3.290  ; counter[3]  ; counter[5]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.511      ;
+; 3.302  ; counter[4]  ; counter[6]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.523      ;
+; 3.307  ; counter[8]  ; counter[12] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.528      ;
+; 3.312  ; counter[13] ; counter[15] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.533      ;
+; 3.401  ; counter[3]  ; counter[6]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.622      ;
+; 3.413  ; counter[4]  ; counter[7]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.634      ;
+; 3.470  ; counter[0]  ; counter[3]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.691      ;
+; 3.470  ; counter[0]  ; counter[4]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.691      ;
+; 3.470  ; counter[0]  ; counter[5]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.691      ;
+; 3.470  ; counter[0]  ; counter[6]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.691      ;
+; 3.470  ; counter[0]  ; counter[7]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.691      ;
+; 3.501  ; counter[2]  ; counter[3]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.722      ;
+; 3.501  ; counter[2]  ; counter[4]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.722      ;
+; 3.501  ; counter[2]  ; counter[5]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.722      ;
+; 3.501  ; counter[2]  ; counter[6]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.722      ;
+; 3.501  ; counter[2]  ; counter[7]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.722      ;
+; 3.510  ; counter[6]  ; clk         ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.731      ;
+; 3.512  ; counter[3]  ; counter[7]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.733      ;
+; 3.522  ; counter[12] ; counter[13] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.743      ;
+; 3.522  ; counter[12] ; counter[14] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.743      ;
+; 3.522  ; counter[12] ; counter[15] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.743      ;
+; 3.557  ; counter[10] ; counter[13] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.778      ;
+; 3.557  ; counter[10] ; counter[14] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.778      ;
+; 3.557  ; counter[10] ; counter[15] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.778      ;
+; 3.642  ; counter[11] ; counter[13] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.863      ;
+; 3.642  ; counter[11] ; counter[14] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.863      ;
+; 3.642  ; counter[11] ; counter[15] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.863      ;
+; 3.659  ; counter[1]  ; counter[3]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.880      ;
+; 3.659  ; counter[1]  ; counter[4]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.880      ;
+; 3.659  ; counter[1]  ; counter[5]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.880      ;
+; 3.659  ; counter[1]  ; counter[6]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.880      ;
+; 3.659  ; counter[1]  ; counter[7]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.880      ;
+; 3.666  ; counter[9]  ; counter[13] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.887      ;
+; 3.666  ; counter[9]  ; counter[14] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.887      ;
+; 3.666  ; counter[9]  ; counter[15] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.887      ;
+; 3.776  ; counter[8]  ; counter[13] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.997      ;
+; 3.776  ; counter[8]  ; counter[14] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.997      ;
+; 3.776  ; counter[8]  ; counter[15] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.997      ;
+; 3.777  ; counter[7]  ; counter[13] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.998      ;
+; 3.777  ; counter[7]  ; counter[14] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.998      ;
+; 3.777  ; counter[7]  ; counter[15] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 3.998      ;
+; 3.790  ; counter[7]  ; counter[8]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.011      ;
+; 3.790  ; counter[7]  ; counter[9]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.011      ;
+; 3.790  ; counter[7]  ; counter[10] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.011      ;
+; 3.790  ; counter[7]  ; counter[11] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.011      ;
+; 3.790  ; counter[7]  ; counter[12] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.011      ;
+; 3.849  ; counter[3]  ; clk         ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.070      ;
+; 3.861  ; counter[1]  ; clk         ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.082      ;
+; 3.876  ; counter[5]  ; clk         ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.097      ;
+; 3.944  ; counter[5]  ; counter[13] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.165      ;
+; 3.944  ; counter[5]  ; counter[14] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.165      ;
+; 3.944  ; counter[5]  ; counter[15] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.165      ;
+; 3.957  ; counter[5]  ; counter[8]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.178      ;
+; 3.957  ; counter[5]  ; counter[9]  ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.178      ;
+; 3.957  ; counter[5]  ; counter[10] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.178      ;
+; 3.957  ; counter[5]  ; counter[11] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.178      ;
+; 3.957  ; counter[5]  ; counter[12] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.178      ;
+; 4.016  ; counter[10] ; clk         ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.237      ;
+; 4.026  ; counter[7]  ; clk         ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.247      ;
+; 4.038  ; counter[6]  ; counter[13] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.259      ;
+; 4.038  ; counter[6]  ; counter[14] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.259      ;
+; 4.038  ; counter[6]  ; counter[15] ; clk_LCD      ; clk_LCD     ; 0.000        ; 0.000      ; 4.259      ;
++--------+-------------+-------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                     ;
++-------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node               ; To Node                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; 1.395 ; state.shift_down_msb    ; state.shift_down_lsb    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.616      ;
+; 1.651 ; state.clear_lcd_lsb     ; state.set_disp_mode_msb ; clk          ; clk         ; 0.000        ; 0.000      ; 1.872      ;
+; 1.654 ; state.clear_lcd_msb     ; state.clear_lcd_lsb     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.875      ;
+; 1.691 ; state.disp_on_msb       ; state.disp_on_lsb       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.912      ;
+; 1.699 ; state.disp_on_lsb       ; state.shift_down_msb    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.920      ;
+; 1.733 ; state.write_kappa       ; state.write_kappa       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.954      ;
+; 2.018 ; state.set_disp_mode_msb ; state.set_disp_mode_lsb ; clk          ; clk         ; 0.000        ; 0.000      ; 2.239      ;
+; 2.134 ; data[0]~reg0            ; data[0]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 2.355      ;
+; 2.168 ; state.idle              ; state.idle              ; clk          ; clk         ; 0.000        ; 0.000      ; 2.389      ;
+; 2.177 ; state.idle              ; RS~reg0                 ; clk          ; clk         ; 0.000        ; 0.000      ; 2.398      ;
+; 2.220 ; data[3]~reg0            ; data[3]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 2.441      ;
+; 2.221 ; RS~reg0                 ; RS~reg0                 ; clk          ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.312 ; state.write_kappa       ; num[2]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.533      ;
+; 2.312 ; state.write_kappa       ; num[1]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.533      ;
+; 2.443 ; state.set_disp_mode_lsb ; state.disp_on_msb       ; clk          ; clk         ; 0.000        ; 0.000      ; 2.664      ;
+; 2.554 ; data[2]~reg0            ; data[2]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 2.775      ;
+; 2.669 ; state.write_kappa       ; num[3]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.890      ;
+; 2.675 ; state.write_kappa       ; num[0]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.896      ;
+; 2.720 ; state.shift_down_lsb    ; data[2]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 2.941      ;
+; 2.837 ; state.shift_down_lsb    ; data[1]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.058      ;
+; 2.866 ; data[1]~reg0            ; data[1]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.087      ;
+; 2.891 ; state.write_kappa       ; RS~reg0                 ; clk          ; clk         ; 0.000        ; 0.000      ; 3.112      ;
+; 2.896 ; state.write_kappa       ; state.idle              ; clk          ; clk         ; 0.000        ; 0.000      ; 3.117      ;
+; 3.040 ; state.write_kappa       ; data[1]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.261      ;
+; 3.102 ; state.disp_on_lsb       ; data[3]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.323      ;
+; 3.118 ; num[3]                  ; num[3]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.339      ;
+; 3.130 ; num[1]                  ; num[3]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.351      ;
+; 3.141 ; num[3]                  ; num[0]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.362      ;
+; 3.154 ; num[1]                  ; num[0]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.375      ;
+; 3.214 ; state.shift_down_lsb    ; state.write_kappa       ; clk          ; clk         ; 0.000        ; 0.000      ; 3.435      ;
+; 3.230 ; num[3]                  ; data[3]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.451      ;
+; 3.257 ; num[2]                  ; RS~reg0                 ; clk          ; clk         ; 0.000        ; 0.000      ; 3.478      ;
+; 3.265 ; num[1]                  ; data[0]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.486      ;
+; 3.279 ; state.disp_on_lsb       ; data[2]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.500      ;
+; 3.286 ; num[0]                  ; state.write_kappa       ; clk          ; clk         ; 0.000        ; 0.000      ; 3.507      ;
+; 3.288 ; num[3]                  ; RS~reg0                 ; clk          ; clk         ; 0.000        ; 0.000      ; 3.509      ;
+; 3.339 ; num[3]                  ; data[0]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.560      ;
+; 3.343 ; num[3]                  ; num[1]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.564      ;
+; 3.352 ; num[3]                  ; num[2]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.573      ;
+; 3.371 ; state.write_kappa       ; data[2]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.592      ;
+; 3.413 ; num[2]                  ; num[3]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.634      ;
+; 3.426 ; state.idle              ; data[1]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.647      ;
+; 3.434 ; num[2]                  ; num[0]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.655      ;
+; 3.442 ; state.write_kappa       ; data[3]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.663      ;
+; 3.453 ; num[0]                  ; state.idle              ; clk          ; clk         ; 0.000        ; 0.000      ; 3.674      ;
+; 3.454 ; num[0]                  ; data[3]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.675      ;
+; 3.483 ; num[2]                  ; data[1]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.704      ;
+; 3.493 ; num[1]                  ; data[3]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.714      ;
+; 3.522 ; num[2]                  ; data[2]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.743      ;
+; 3.575 ; num[1]                  ; RS~reg0                 ; clk          ; clk         ; 0.000        ; 0.000      ; 3.796      ;
+; 3.590 ; state.clear_lcd_lsb     ; data[0]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.811      ;
+; 3.590 ; num[1]                  ; state.write_kappa       ; clk          ; clk         ; 0.000        ; 0.000      ; 3.811      ;
+; 3.610 ; num[1]                  ; num[1]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.831      ;
+; 3.617 ; num[0]                  ; data[1]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.838      ;
+; 3.617 ; num[1]                  ; num[2]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.838      ;
+; 3.628 ; state.write_kappa       ; data[0]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.849      ;
+; 3.628 ; num[3]                  ; data[2]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.849      ;
+; 3.640 ; num[0]                  ; data[0]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.861      ;
+; 3.653 ; num[2]                  ; state.write_kappa       ; clk          ; clk         ; 0.000        ; 0.000      ; 3.874      ;
+; 3.664 ; num[2]                  ; num[1]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.885      ;
+; 3.683 ; num[2]                  ; num[2]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.904      ;
+; 3.713 ; num[0]                  ; num[3]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.934      ;
+; 3.734 ; num[0]                  ; num[0]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.955      ;
+; 3.736 ; num[2]                  ; data[3]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 3.957      ;
+; 3.757 ; num[1]                  ; state.idle              ; clk          ; clk         ; 0.000        ; 0.000      ; 3.978      ;
+; 3.797 ; num[2]                  ; data[0]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 4.018      ;
+; 3.820 ; num[2]                  ; state.idle              ; clk          ; clk         ; 0.000        ; 0.000      ; 4.041      ;
+; 3.825 ; num[0]                  ; num[1]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.046      ;
+; 3.830 ; num[3]                  ; data[1]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 4.051      ;
+; 3.857 ; num[0]                  ; num[2]                  ; clk          ; clk         ; 0.000        ; 0.000      ; 4.078      ;
+; 3.863 ; num[3]                  ; state.write_kappa       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.084      ;
+; 3.896 ; num[1]                  ; data[1]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 4.117      ;
+; 3.935 ; num[1]                  ; data[2]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 4.156      ;
+; 3.969 ; state.idle              ; data[2]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 4.190      ;
+; 3.971 ; state.set_disp_mode_msb ; data[1]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 4.192      ;
+; 4.030 ; num[3]                  ; state.idle              ; clk          ; clk         ; 0.000        ; 0.000      ; 4.251      ;
+; 4.031 ; num[0]                  ; data[2]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 4.252      ;
+; 4.068 ; state.idle              ; data[0]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 4.289      ;
+; 4.073 ; state.idle              ; data[3]~reg0            ; clk          ; clk         ; 0.000        ; 0.000      ; 4.294      ;
++-------+-------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 96       ; 0        ; 0        ; 0        ;
+; clk        ; clk_LCD  ; 1        ; 1        ; 0        ; 0        ;
+; clk_LCD    ; clk_LCD  ; 247      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 96       ; 0        ; 0        ; 0        ;
+; clk        ; clk_LCD  ; 1        ; 1        ; 0        ; 0        ;
+; clk_LCD    ; clk_LCD  ; 247      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 0     ; 0    ;
+; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 6     ; 6    ;
+; Unconstrained Output Port Paths ; 6     ; 6    ;
++---------------------------------+-------+------+
+
+
++----------------------------------------+
+; Clock Status Summary                   ;
++---------+---------+------+-------------+
+; Target  ; Clock   ; Type ; Status      ;
++---------+---------+------+-------------+
+; clk     ; clk     ; Base ; Constrained ;
+; clk_LCD ; clk_LCD ; Base ; Constrained ;
++---------+---------+------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; RS          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; en          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; RS          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; en          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Sun Feb 17 00:03:42 2019
+Info: Command: quartus_sta LCD1602a -c LCD1602a
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'LCD1602a.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk_LCD clk_LCD
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -4.247
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.247             -58.268 clk_LCD 
+    Info (332119):    -3.883             -47.969 clk 
+Info (332146): Worst-case hold slack is -1.511
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.511              -1.511 clk_LCD 
+    Info (332119):     1.395               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 clk_LCD 
+    Info (332119):     0.234               0.000 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 519 megabytes
+    Info: Processing ended: Sun Feb 17 00:03:43 2019
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

@@ -1,0 +1,13 @@
+
+State Machine - |lcd_show|state
+Name state.idle state.write_kappa state.shift_down_lsb state.shift_down_msb state.disp_on_lsb state.disp_on_msb state.set_disp_mode_lsb state.set_disp_mode_msb state.clear_lcd_lsb state.clear_lcd_msb 
+state.clear_lcd_msb 0 0 0 0 0 0 0 0 0 0 
+state.clear_lcd_lsb 0 0 0 0 0 0 0 0 1 1 
+state.set_disp_mode_msb 0 0 0 0 0 0 0 1 0 1 
+state.set_disp_mode_lsb 0 0 0 0 0 0 1 0 0 1 
+state.disp_on_msb 0 0 0 0 0 1 0 0 0 1 
+state.disp_on_lsb 0 0 0 0 1 0 0 0 0 1 
+state.shift_down_msb 0 0 0 1 0 0 0 0 0 1 
+state.shift_down_lsb 0 0 1 0 0 0 0 0 0 1 
+state.write_kappa 0 1 0 0 0 0 0 0 0 1 
+state.idle 1 0 0 0 0 0 0 0 0 1 

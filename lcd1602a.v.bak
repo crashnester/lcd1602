@@ -1,0 +1,35 @@
+module lcd_1602(
+		clk_50M,
+		rst,
+		en,
+		RS,
+		RW,
+		data
+);
+ 
+input		clk_50M;
+input		rst;
+output	en;
+output	RS;
+output	RW;
+output	[7:0] data;
+wire		clk_500;
+
+clk50M_500   u_clk50M_500
+(
+	.clk_50M(clk_50M),
+	.rst(rst),
+	.clk_500(clk_500)
+ ); 
+ 
+lcd_show u_lcd_show
+(
+	.clk_LCD(clk_500),
+    .rst(rst),
+    .en(en),
+    .RS(RS),
+    .RW(RW),
+    .data(data)
+ );
+ 
+endmodule

@@ -1,0 +1,27 @@
+|lcd_show
+clk_LCD => clk.CLK
+clk_LCD => counter[0].CLK
+clk_LCD => counter[1].CLK
+clk_LCD => counter[2].CLK
+clk_LCD => counter[3].CLK
+clk_LCD => counter[4].CLK
+clk_LCD => counter[5].CLK
+clk_LCD => counter[6].CLK
+clk_LCD => counter[7].CLK
+clk_LCD => counter[8].CLK
+clk_LCD => counter[9].CLK
+clk_LCD => counter[10].CLK
+clk_LCD => counter[11].CLK
+clk_LCD => counter[12].CLK
+clk_LCD => counter[13].CLK
+clk_LCD => counter[14].CLK
+clk_LCD => counter[15].CLK
+en << clk.DB_MAX_OUTPUT_PORT_TYPE
+RS << RS~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RW << <GND>
+data[0] << data[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data[1] << data[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data[2] << data[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data[3] << data[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

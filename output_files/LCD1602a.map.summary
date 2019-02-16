@@ -1,0 +1,9 @@
+Analysis & Synthesis Status : Successful - Sun Feb 17 00:03:36 2019
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : LCD1602a
+Top-level Entity Name : lcd_show
+Family : MAX II
+Total logic elements : 57
+Total pins : 8
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

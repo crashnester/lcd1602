@@ -1,0 +1,11 @@
+Fitter Status : Successful - Sun Feb 17 00:03:39 2019
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : LCD1602a
+Top-level Entity Name : lcd_show
+Family : MAX II
+Device : EPM240T100C5
+Timing Models : Final
+Total logic elements : 56 / 240 ( 23 % )
+Total pins : 8 / 80 ( 10 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )
