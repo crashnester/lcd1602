@@ -7,7 +7,6 @@ reg			RS;
 reg			e;
 reg 			clk;
 reg      	[3:0] num;
-reg  			[15:0] counter;
 reg 			[3:0] state; 
 parameter   clear_lcd_msb			= 4'b0000,
 				clear_lcd_lsb			= 4'b0001,

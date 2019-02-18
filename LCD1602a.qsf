@@ -74,8 +74,8 @@
 # -------------------------------------------------------------------------- #
 
 
-set_global_assignment -name FAMILY "MAX II"
-set_global_assignment -name DEVICE EPM240T100C5
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE10E22C8
 set_global_assignment -name TOP_LEVEL_ENTITY lcd_show
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:40:25  DECEMBER 23, 2018"
@@ -85,11 +85,11 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
 set_global_assignment -name VERILOG_FILE lcd1602a.v
-set_location_assignment PIN_12 -to clk_LCD
-set_location_assignment PIN_7 -to RS
-set_location_assignment PIN_8 -to RW
-set_location_assignment PIN_15 -to data[0]
-set_location_assignment PIN_16 -to data[1]
-set_location_assignment PIN_17 -to data[2]
-set_location_assignment PIN_18 -to data[3]
-set_location_assignment PIN_6 -to en
+set_location_assignment PIN_24 -to clk_LCD
+set_location_assignment PIN_74 -to RS
+set_location_assignment PIN_73 -to RW
+set_location_assignment PIN_1 -to data[0]
+set_location_assignment PIN_2 -to data[1]
+set_location_assignment PIN_3 -to data[2]
+set_location_assignment PIN_34 -to data[3]
+set_location_assignment PIN_75 -to en
